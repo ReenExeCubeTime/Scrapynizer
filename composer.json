@@ -10,5 +10,9 @@
     "autoload": {
         "psr-4": { "ReenExe\\Scrapynizer\\": "src/" }
     },
-    "require": {}
+    "require": {
+        "guzzlehttp/guzzle": "^6.2",
+        "symfony/dom-crawler": "^3.0",
+        "doctrine/dbal": "^2.5"
+    }
 }

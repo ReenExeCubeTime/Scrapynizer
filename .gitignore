@@ -1,2 +1,3 @@
 .idea
-vednor
+vendor
+composer.lock
