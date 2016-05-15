@@ -1,8 +1,11 @@
 <?php
 
-namespace ReenExe\Scrapynizer;
+namespace ReenExe\Scrapynizer\Scraper;
 
 use GuzzleHttp\Exception\ClientException;
+use ReenExe\Scrapynizer\Analyzer\ListContentAnalyzerInterface;
+use ReenExe\Scrapynizer\Pager\PaginationHunterInterface;
+use ReenExe\Scrapynizer\Repository\ListContentRepositoryInterface;
 use Symfony\Component\DomCrawler\Crawler;
 
 class ListScraper extends AbstractScraper

@@ -1,6 +1,6 @@
 <?php
 
-namespace ReenExe\Scrapynizer;
+namespace ReenExe\Scrapynizer\Repository;
 
 interface PathCollectionRepositoryInterface
 {

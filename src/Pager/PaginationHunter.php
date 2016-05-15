@@ -1,6 +1,6 @@
 <?php
 
-namespace ReenExe\Scrapynizer;
+namespace ReenExe\Scrapynizer\Pager;
 
 use Symfony\Component\DomCrawler\Crawler;
 

@@ -1,9 +1,11 @@
 <?php
 
-namespace ReenExe\Scrapynizer;
+namespace ReenExe\Scrapynizer\Scraper;
 
 use GuzzleHttp\Promise\PromiseInterface;
 use Psr\Http\Message\ResponseInterface;
+use ReenExe\Scrapynizer\Analyzer\ContentAnalyzerInterface;
+use ReenExe\Scrapynizer\Repository\PathCollectionRepositoryInterface;
 
 class CollectionScraper extends AbstractScraper
 {

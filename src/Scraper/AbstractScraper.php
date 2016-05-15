@@ -1,6 +1,6 @@
 <?php
 
-namespace ReenExe\Scrapynizer;
+namespace ReenExe\Scrapynizer\Scraper;
 
 use GuzzleHttp\Client;
 
