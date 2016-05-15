@@ -2,16 +2,11 @@
 
 namespace ReenExe\Scrapynizer;
 
-use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use Symfony\Component\DomCrawler\Crawler;
 
-class ListScraper
+class ListScraper extends AbstractScraper
 {
-    const STATUS_PROGRESS = 0;
-
-    const STATUS_END = 1;
-
     /**
      * @var ListContentRepositoryInterface
      */
@@ -26,11 +21,6 @@ class ListScraper
      * @var ListContentAnalyzerInterface
      */
     private $analyzer;
-
-    /**
-     * @var Client
-     */
-    private $client;
 
     public function process($limit)
     {
