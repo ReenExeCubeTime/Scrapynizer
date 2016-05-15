@@ -1,0 +1,11 @@
+{
+    "name": "reen-exe/scrapynizer",
+    "description": "Common components for scraping",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ReenExe"
+        }
+    ],
+    "require": {}
+}
