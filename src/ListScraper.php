@@ -4,7 +4,6 @@ namespace ReenExe\Scrapynizer;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
-use ReenExe\Scrapynizer\ListContentAnalyzerInterface;
 use Symfony\Component\DomCrawler\Crawler;
 
 class ListScraper
