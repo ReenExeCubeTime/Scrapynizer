@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Service\Scrap;
+namespace ReenExe\Scrapynizer\Scrap;
 
 class PagePathProcess extends AbstractTableStorage implements PagePathQueueInterface, PageProcessInterface
 {

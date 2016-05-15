@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Service\Scrap;
+namespace ReenExe\Scrapynizer\Scrap;
 
 use AppBundle\Service\Scrap\AbstractTableStorage;
 use AppBundle\Service\Scrap\ProfileListContentStorageInterface;

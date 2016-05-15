@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Service\Scrap;
+namespace ReenExe\Scrapynizer\Scrap;
 
 interface PagePathQueueInterface
 {

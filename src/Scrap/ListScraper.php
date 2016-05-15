@@ -1,8 +1,7 @@
 <?php
 
-namespace AppBundle\Service\Scrap;
+namespace ReenExe\Scrapynizer\Scrap;
 
-use AppBundle\Core\QueueState;
 use AppBundle\Service\AbstractQueueService;
 use GuzzleHttp\Client;
 use Symfony\Component\DomCrawler\Crawler;
@@ -47,7 +46,7 @@ class ListScraper extends AbstractQueueService
             $nextListPath = $this->contentAnalyzer->getNextPage(new Crawler($last));
 
             if (empty($nextListPath)) {
-                return QueueState::END;
+                return false;
             }
 
         } else {
@@ -58,7 +57,7 @@ class ListScraper extends AbstractQueueService
             try {
                 $html =  $this->client->get($nextListPath)->getBody()->getContents();
             } catch (\GuzzleHttp\Exception\ClientException $e) {
-                return QueueState::END;
+                return false;
             }
 
             $this->profileListStorage->save($nextListPath, $html);
@@ -69,6 +68,8 @@ class ListScraper extends AbstractQueueService
 
             $nextListPath = $this->contentAnalyzer->getNextPage($crawler);
         } while (--$limit && $nextListPath);
+
+        return true;
     }
 
     protected function createCache()
