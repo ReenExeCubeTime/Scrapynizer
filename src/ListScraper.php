@@ -4,6 +4,7 @@ namespace ReenExe\Scrapynizer;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
+use ReenExe\Scrapynizer\ListContentAnalyzerInterface;
 use Symfony\Component\DomCrawler\Crawler;
 
 class ListScraper
@@ -21,6 +22,11 @@ class ListScraper
      * @var PaginationHunterInterface
      */
     private $pager;
+
+    /**
+     * @var ListContentAnalyzerInterface
+     */
+    private $analyzer;
 
     /**
      * @var Client
@@ -50,6 +56,8 @@ class ListScraper
             $crawler = new Crawler($html);
 
             $this->repository->save($nextPath, $html);
+
+            $this->analyzer->analyze($nextPath, $html, $crawler);
 
             $nextPath = $this->pager->getNextPage($crawler);
         } while (--$limit && $nextPath);
