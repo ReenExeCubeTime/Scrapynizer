@@ -2,6 +2,7 @@
 
 namespace ReenExe\Scrapynizer\Scraper;
 
+use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use ReenExe\Scrapynizer\Analyzer\ListContentAnalyzerInterface;
 use ReenExe\Scrapynizer\Pager\PaginationHunterInterface;
@@ -13,17 +14,29 @@ class ListScraper extends AbstractScraper
     /**
      * @var ListContentRepositoryInterface
      */
-    private $repository;
+    protected $repository;
 
     /**
      * @var PaginationHunterInterface
      */
-    private $pager;
+    protected $pager;
 
     /**
      * @var ListContentAnalyzerInterface
      */
-    private $analyzer;
+    protected $analyzer;
+
+    public function __construct(
+        Client $client,
+        PaginationHunterInterface $pager,
+        ListContentRepositoryInterface $repository,
+        ListContentAnalyzerInterface $analyzer
+    ) {
+        $this->client = $client;
+        $this->pager = $pager;
+        $this->repository = $repository;
+        $this->analyzer = $analyzer;
+    }
 
     public function process($limit)
     {
