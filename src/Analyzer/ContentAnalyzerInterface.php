@@ -5,9 +5,9 @@ namespace ReenExe\Scrapynizer\Analyzer;
 interface ContentAnalyzerInterface
 {
     /**
-     * @param $nextPath
+     * @param $path
      * @param $html
      * @return mixed
      */
-    public function analyze($nextPath, $html);
+    public function analyze($path, $html);
 }
