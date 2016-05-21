@@ -35,21 +35,6 @@ class CollectionScraper extends AbstractScraper implements ListScraperInterface
         $this->analyzer = $analyzer;
     }
 
-    /**
-     * @param Client $client
-     * @param PathCollectionRepositoryInterface $repository
-     * @param ContentAnalyzerInterface $analyzer
-     */
-    public function __construct(
-        Client $client,
-        PathCollectionRepositoryInterface $repository,
-        ContentAnalyzerInterface $analyzer
-    ) {
-        $this->client = $client;
-        $this->repository = $repository;
-        $this->analyzer = $analyzer;
-    }
-
     public function process($limit)
     {
         $pages = $this->repository->getNext($limit);
