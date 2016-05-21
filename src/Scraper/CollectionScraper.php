@@ -2,24 +2,40 @@
 
 namespace ReenExe\Scrapynizer\Scraper;
 
+use GuzzleHttp\Client;
 use GuzzleHttp\Promise\PromiseInterface;
 use Psr\Http\Message\ResponseInterface;
 use ReenExe\Scrapynizer\Analyzer\ContentAnalyzerInterface;
 use ReenExe\Scrapynizer\Repository\PathCollectionRepositoryInterface;
 
-class CollectionScraper extends AbstractScraper
+class CollectionScraper extends AbstractScraper implements ListScraperInterface
 {
     /**
      * @var ContentAnalyzerInterface
      */
-    private $analyzer;
+    protected $analyzer;
 
     /**
      * @var PathCollectionRepositoryInterface
      */
-    private $repository;
+    protected $repository;
 
-    protected function process($limit)
+    /**
+     * @param Client $client
+     * @param PathCollectionRepositoryInterface $repository
+     * @param ContentAnalyzerInterface $analyzer
+     */
+    public function __construct(
+        Client $client,
+        PathCollectionRepositoryInterface $repository,
+        ContentAnalyzerInterface $analyzer
+    ) {
+        $this->client = $client;
+        $this->repository = $repository;
+        $this->analyzer = $analyzer;
+    }
+
+    public function process($limit)
     {
         $pages = $this->repository->getNext($limit);
 
