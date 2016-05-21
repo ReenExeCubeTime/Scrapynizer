@@ -7,10 +7,10 @@ use Symfony\Component\DomCrawler\Crawler;
 interface ListContentAnalyzerInterface
 {
     /**
-     * @param $nextPath
+     * @param $path
      * @param $html
      * @param Crawler $crawler
      * @return mixed
      */
-    public function analyze($nextPath, $html, Crawler $crawler);
+    public function analyze($path, $html, Crawler $crawler);
 }
