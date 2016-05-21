@@ -9,7 +9,7 @@ use ReenExe\Scrapynizer\Pager\PaginationHunterInterface;
 use ReenExe\Scrapynizer\Repository\ListContentRepositoryInterface;
 use Symfony\Component\DomCrawler\Crawler;
 
-class ListScraper extends AbstractScraper
+class SequenceScraper extends AbstractScraper implements ListScraperInterface
 {
     /**
      * @var ListContentRepositoryInterface
@@ -26,15 +26,21 @@ class ListScraper extends AbstractScraper
      */
     protected $analyzer;
 
+    /**
+     * @param Client $client
+     * @param ListContentRepositoryInterface $repository
+     * @param PaginationHunterInterface $pager
+     * @param ListContentAnalyzerInterface $analyzer
+     */
     public function __construct(
         Client $client,
-        PaginationHunterInterface $pager,
         ListContentRepositoryInterface $repository,
+        PaginationHunterInterface $pager,
         ListContentAnalyzerInterface $analyzer
     ) {
         $this->client = $client;
-        $this->pager = $pager;
         $this->repository = $repository;
+        $this->pager = $pager;
         $this->analyzer = $analyzer;
     }
 
