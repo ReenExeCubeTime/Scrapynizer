@@ -11,14 +11,29 @@ use ReenExe\Scrapynizer\Repository\PathCollectionRepositoryInterface;
 class CollectionScraper extends AbstractScraper implements ListScraperInterface
 {
     /**
+     * @var PathCollectionRepositoryInterface
+     */
+    protected $repository;
+
+    /**
      * @var ContentAnalyzerInterface
      */
     protected $analyzer;
 
     /**
-     * @var PathCollectionRepositoryInterface
+     * @param Client $client
+     * @param PathCollectionRepositoryInterface $repository
+     * @param ContentAnalyzerInterface $analyzer
      */
-    protected $repository;
+    public function __construct(
+        Client $client,
+        PathCollectionRepositoryInterface $repository,
+        ContentAnalyzerInterface $analyzer
+    ) {
+        $this->client = $client;
+        $this->repository = $repository;
+        $this->analyzer = $analyzer;
+    }
 
     /**
      * @param Client $client
